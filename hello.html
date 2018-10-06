@@ -16,10 +16,18 @@
       <p>
         <input v-model.number='message' type="text" name="" value="">
       </p>
+      <p>
+        change display message on condition (over message length)
+        {{ lenMsgOver.length >= 'message'.length ? 'message is over' : 'message is under' }}
+      </p>
+      <p>
+        change display message on condition (under message length)
+        {{ lenMsgUnder.length >= 'message'.length ? 'message is over' : 'message is under' }}
+      </p>
       <div class="v-if">
-        <p v-if='show'>
+        <!-- <p v-if='show'>
           hellow vue show true
-        </p>
+        </p> -->
         <button v-on:click='show=!show' type="button" name="button"></button>
         <transition>
           <p v-if='show'>

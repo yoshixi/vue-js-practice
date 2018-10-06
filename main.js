@@ -2,6 +2,8 @@
     el: '#app',
     data: {
       message: '2',
+      lenMsgOver: 'message over',
+      lenMsgUnder: 'msg',
       show: true
     },
     methods: {
