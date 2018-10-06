@@ -2,19 +2,38 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <title></title>
- <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div>
+  <div class='main'>
     <div id="app">
      {{ message }}
+      <p>
+        <button v-on:click='handleClick' type="button" name="button">Click</button>
+      </p>
+      <p>
+        <input v-model.number='message' type="text" name="" value="">
+      </p>
+      <div class="v-if">
+        <p v-if='show'>
+          hellow vue show true
+        </p>
+        <button v-on:click='show=!show' type="button" name="button"></button>
+        <transition>
+          <p v-if='show'>
+            in transition tag
+          </p>
+        </transition>
+      </div>
     </div>
 
     <div id="app-2">
       <span v-bind:title="message">
          Hover your mouse over me for a few seconds
          to see my dynamically bound title!
+         {{ message }}
       </span>
     </div>
 
@@ -29,39 +48,7 @@
        </li>
       </ol>
     </div>
-  </div>
-  <script>
-    var app = new Vue ({
-      el: '#app',
-      data: {
-        message: 'Hello Vue!'
-      }
-    })
-
-  var app2 = new Vue({
-    el: '#app-2',
-    data: {
-      message: 'You loaded this page on' + new Date().toLocaleString()
-    }
-  })
-  var app3 = new Vue ({
-    el: '#app-3',
-    data: {
-      seen: false
-    }
-  })
-
-  var app4 = new Vue({
-    el: '#app-4',
-    data: {
-      todos: [
-        { text: 'Learn JavaScript' },
-        { text: 'Learn Vue' },
-        { text: 'Build something awesome' },
-      ]
-    }
-  })
-
-  </script>
+  </div><!-- .main -->
+  <script src="main.js"></script>
 </body>
 </html>
