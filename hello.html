@@ -16,18 +16,11 @@
       <p>
         <input v-model.number='message' type="text" name="" value="">
       </p>
-      <p>
-        change display message on condition (over message length)
-        {{ lenMsgOver.length >= 'message'.length ? 'message is over' : 'message is under' }}
-      </p>
-      <p>
-        change display message on condition (under message length)
-        {{ lenMsgUnder.length >= 'message'.length ? 'message is over' : 'message is under' }}
-      </p>
       <div class="v-if">
         <!-- <p v-if='show'>
           hellow vue show true
         </p> -->
+        <!-- css v-enterなどが影響するtag -->
         <button v-on:click='show=!show' type="button" name="button"></button>
         <transition>
           <p v-if='show'>
@@ -35,6 +28,33 @@
           </p>
         </transition>
       </div>
+      <p v-bind:value='message'>
+        change display message on condition (over message length)
+        {{ lenMsgOver.length >= 'message'.length ? 'message is over' : 'message is under' }}
+      </p>
+      <p :value='message'>
+        change display message on condition (under message length)
+        {{ lenMsgUnder.length >= 'message'.length ? 'message is over' : 'message is under' }}
+      </p>
+      <p v-bind:text-content.prop='message'>
+      </p>
+      <p v-bind:scroll-top.prop='message'>
+      </p>
+      <!-- app.data を $dataとかける -->
+      <pre>{{ $data }}</pre>
+
+      <!-- p 61 -->
+      <p>{{ count }}</p>
+      <button type="button" name="button" v-on:click='clickIncrement'></button>
+      <p>{{ timeCount }}</p>
+
+      <p v-bind:class="{ child: isChild, 'is-active': isActive }">Text</p>
+      <p v-bind:style="{ color: textColor, backgroundColor: bgColor }">Text</p>
+      <!-- class条件の三項演算 -->
+      <p v-bind:class="[isActive ? 'active' : 'normal', otherClass]">Text</p>
+      <!-- classをオブジェクトで渡す -->
+      <p v-bind:class='classObject'>bind by Object</p>
+      <p v-bind:style='styleObject'>bind by Object</p>
     </div>
 
     <div id="app-2">
