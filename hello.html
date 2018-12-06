@@ -48,14 +48,72 @@
       <button type="button" name="button" v-on:click='clickIncrement'></button>
       <p>{{ timeCount }}</p>
 
-      <p v-bind:class="{ child: isChild, 'is-active': isActive }">Text</p>
+      <p v-bind:class="{ child: isChild, 'is-active': isActive }">Text is child</p>
       <p v-bind:style="{ color: textColor, backgroundColor: bgColor }">Text</p>
       <!-- class条件の三項演算 -->
       <p v-bind:class="[isActive ? 'active' : 'normal', otherClass]">Text</p>
       <!-- classをオブジェクトで渡す -->
-      <p v-bind:class='classObject'>bind by Object</p>
-      <p v-bind:style='styleObject'>bind by Object</p>
+      <p v-bind:class='classObject'>bind by Object classObject</p>
+      <p v-bind:style='styleObject'>bind by Object styleObject</p>
+
+      <!-- objectでitemをバインド -->
+      <img v-bind="item" v-bind:id="'thumb-' + item.id">
+
+      <svg xmlns="https://www.w3.org/2000/svg" version="1.1">
+        <circle cx="100" cy="75" v-bind:r="radius" fill="lightpink" />
+      </svg>
+      <input type="range" min="0" max="100" v-model="radius">
     </div>
+
+
+    <!-- section-9  -->
+    <div id="app9">
+      <div v-if="ok">v-if条件の描画</div>
+      <div v-show="ok">v-show条件の描画</div>
+
+      <!--
+        v-if remove dom object, v-show remove by css display propaty
+        if error is occured when specific data is not present, use v-if
+        if toggle event is occured frequentry, use v-show
+      -->
+      <template v-if="ok">
+        <header>title<header>
+        <div></div>
+      </template>
+
+      <!-- v-if directive  -->
+      <div>
+        <div v-if="type === 'A'">
+          type はA
+        </div>
+        <div v-else-if="type === 'B'">
+          type はB
+        </div>
+        <div v-else>
+          全ての条件を満たさなかった
+        </div>
+      </div>
+
+      <div>
+        <div v-if="loaded" key="content-visible">
+          v-if loaded key=content-visible
+        </div>
+        <div v-else key="content-loading">
+          loading now...
+        </div>
+      </div>
+
+    </div><!-- #app9  -->
+
+
+    <div id="app10">
+      <ul>
+        <li v-for="item in list" v-bind:key="item.id">
+          ID. {{ item.id }} {{ item.name }} HP. {{ item.hp }}
+        </li>
+      </ul>
+    </div><!-- #app10  -->
+
 
     <div id="app-2">
       <span v-bind:title="message">
@@ -76,6 +134,8 @@
        </li>
       </ol>
     </div>
+
+
   </div><!-- .main -->
   <script src="main.js"></script>
 </body>

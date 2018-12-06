@@ -20,7 +20,15 @@
       styleObject: {
         color: 'red',
         backgroundColor: 'blue'
-      }
+      },
+      item: {
+        id: 1,
+        src: 'item1.jpg',
+        alt: 'thumbnail content',
+        width: '200px',
+        height: 200,
+      },
+      radius: 50
     },
     methods: {
       handleClick: function (e) {
@@ -41,10 +49,28 @@
     }
   })
 
-  var app2 = new Vue({
+  var app9 = new Vue({
+    el: '#app9',
+    data: {
+      ok: false
+    }
+  })
+
+  var app10 = new Vue({
+    el: '#app10',
+    data: {
+      list: [
+        {id: 1, name: 'slime',   hp: 100},
+        {id: 2, name: 'gobline', hp: 200},
+        {id: 3, name: 'dragon',  hp: 300}
+      ]
+    }
+  })
+
+  var app2 = new vue({
     el: '#app-2',
     data: {
-      message: 'You loaded this page on' + new Date().toLocaleString()
+      message: 'you loaded this page on' + new date().tolocalestring()
     }
   })
   var app3 = new Vue ({
