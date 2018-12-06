@@ -6,9 +6,11 @@
         <li v-for="item in items" :key="item.id">
           <h4>
             <span>{{item.title}}</span>
-            <small>by {{item.user.id}}
+            <small>
               <span>by </span>
-              nux
+              <nuxt-link :to="`/users/${item.user.id}`">
+                {{item.user.id}}
+              </nuxt-link>
             </small>
           </h4>
           <div class="">{{item.body.slice(0, 130)}}...</div>
