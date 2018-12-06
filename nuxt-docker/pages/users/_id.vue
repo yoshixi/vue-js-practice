@@ -9,6 +9,16 @@
           <small><b>top へ戻る</b> </small>
         </nuxt-link>
       </p>
+      <h3>{{user.id}}さんの投稿一覧</h3>
+      <ul>
+        <li v-for="item in items" :key="item.id">
+          <h4>
+            <span>{{item.title}}</span>
+          </h4>
+          <div>{{item.body.slice(0, 130)}}……</div>
+          <p><a target="_blank" :href="item.url">{{item.url}}</a></p>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
@@ -28,5 +38,20 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped>
+.container {
+  min-height: 100vh;
+  padding: 16px;
+}
+h3 {
+  margin: 16px 0;
+  padding: 8px 0;
+  border-bottom: solid 1px #e5e5e5;
+}
+li + li {
+  margin: 16px 0;
+}
+p {
+  margin: 8px 0;
+}
 </style>
