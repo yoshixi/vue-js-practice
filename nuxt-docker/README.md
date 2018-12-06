@@ -33,3 +33,6 @@ yarn install
 vue init nuxt-community/starter-template
 yarn # packageをinstall
 ```
+
+next sample
+https://nuxt-beginners-guide.elevenback.jp/examples/my-first-nuxt-app.html#%E5%A4%96%E9%83%A8%E3%83%AA%E3%83%B3%E3%82%AF

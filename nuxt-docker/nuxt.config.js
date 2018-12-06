@@ -21,7 +21,14 @@ module.exports = {
     '@nuxtjs/axios',
   ],
   axios: {
-  },  /*
+  },
+  plugins: [
+    '~/plugins/axios.js'
+  ],
+  env: {
+    QIITA_TOKEN: process.env.QIITA_TOKEN
+  },
+ /*
   ** Build configuration
   */
   build: {
