@@ -23,49 +23,46 @@
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     AppLogo
   },
-  async asyncData({ app }) {
-    console.log(app.$axios);
-    const items = await app.$axios.$get('https://qiita.com/api/v2/items?query=tag:nuxt.js');
-    console.log(items);
-    return {
-      items
+  async asyncData({ store }) {
+    if (store.getters['items'].length) {
+      return;
     }
+    await store.dispatch('fetchItems');
+  },
+  computed: {
+    ...mapGetters(['items'])
   }
+  // async asyncData({ app }) {
+  //   console.log(app.$axios);
+  //   const items = await app.$axios.$get('https://qiita.com/api/v2/items?query=tag:nuxt.js');
+  //   console.log(items);
+  //   return {
+  //     items
+  //   }
+  // }
 }
 </script>
 
 <style>
 .container {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  padding: 16px;
 }
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+h3 {
+  margin: 16px 0;
+  padding: 8px 0;
+  border-bottom: solid 1px #e5e5e5;
 }
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+li + li {
+  margin: 16px 0;
 }
-
-.links {
-  padding-top: 15px;
+p {
+  margin: 8px 0;
 }
 </style>
