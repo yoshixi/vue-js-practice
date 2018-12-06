@@ -4,9 +4,10 @@
       <app-logo/>
       <h1 class="title">
         app
+        Hell
       </h1>
       <h2 class="subtitle">
-        
+
       </h2>
       <div class="links">
         <a
@@ -62,4 +63,3 @@ export default {
   padding-top: 15px;
 }
 </style>
-
