@@ -1,5 +1,8 @@
 <template>
-  <section class="container">
+  <div class="">
+    <h1>Index Page</h1>
+  </div>
+  <!-- <section class="container">
     <div>
       <h3>Nuxt.jsのtagがついている</h3>
       <ul>
@@ -18,7 +21,7 @@
         </li>
       </ul>
     </div>
-  </section>
+  </section> -->
 </template>
 
 <script>

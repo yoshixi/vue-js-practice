@@ -32,6 +32,7 @@ docker-compose exec app sh
 yarn install
 vue init nuxt-community/starter-template
 yarn # packageをinstall
+yarn dev# packageをinstall
 ```
 
 next sample
